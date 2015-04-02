@@ -1,7 +1,23 @@
 <launch>
-    <node pkg="rviz_issue_853" type="publish_markers.py" name="publish_markers" output="screen"  />
-    
-    <node pkg="rviz" type="rviz" name="rviz" output="screen"
+    <!-- URDF -->
+    <param name="robot_description" 
+           command="cat $(find rviz_issue_853)/collada_unit_centimeter.urdf" 
+    />
+    <node name="robot_state_publisher" 
+          pkg="robot_state_publisher" 
+          type="state_publisher" 
+    />
+
+    <!-- Markers -->
+    <node pkg="rviz_issue_853" 
+          type="publish_markers.py" 
+          name="publish_markers" 
+          output="screen"  
+    />
+    <node pkg="rviz" 
+          type="rviz" 
+          name="rviz" 
+          output="screen"
     	  args="-d $(find rviz_issue_853)/example.rviz"
     />
 </launch>
