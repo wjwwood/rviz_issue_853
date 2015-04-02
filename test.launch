@@ -1,6 +1,7 @@
 <launch>
-    <node package="rviz_issue_853" type="publish_markers.py" name="publish_markers" output="screen" />
-    <!-- args="$(find rviz_issue_853)/rviz." -->
-    <node package="rviz" type="rviz" name="rviz" output="screen"
+    <node pkg="rviz_issue_853" type="publish_markers.py" name="publish_markers" output="screen"  />
+    
+    <node pkg="rviz" type="rviz" name="rviz" output="screen"
+    	  args="-d $(find rviz_issue_853)/example.rviz"
     />
 </launch>
